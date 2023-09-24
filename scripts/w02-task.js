@@ -20,7 +20,7 @@ imageElement.setAttribute('src', `${profilePicture}`);
 imageElement.setAttribute('alt', `Profile image of ${fullName}`);
 
 /* Step 5 - Array */
-favoriteFoods = ['sushi', 'fish', 'spaghetti', 'ham and cheese sandwich', 'broccoli and cheese soup', 'salmon', 'fruit salad'];
+let favoriteFoods = ['sushi', 'fish', 'spaghetti', 'ham and cheese sandwich', 'broccoli and cheese soup', 'salmon', 'fruit salad'];
 foodElement.innerHTML = `${favoriteFoods}`;
 let favoriteFood = 'sharp cheddar cheese';
 favoriteFoods.push(`${favoriteFood}`);

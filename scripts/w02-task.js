@@ -4,7 +4,7 @@
 
 /* Step 2 - Variables */
 let fullName = 'Sterling Steele';
-let currentYear = 'currentYear';
+let currentYear = '2023';
 let profilePicture = 'images/IMG_0520.jpeg';
 
 /* Step 3 - Element Variables */
@@ -15,7 +15,7 @@ const imageElement = document.querySelector('img');
 
 /* Step 4 - Adding Content */
 nameElement.innerHTML = `<strong>${fullName}</strong>`;
-yearElement.textContent = currentYear
+yearElement.textContent = currentYear;
 imageElement.setAttribute('src', `${profilePicture}`);
 imageElement.setAttribute('alt', `Profile image of ${fullName}`);
 

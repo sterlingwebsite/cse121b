@@ -28,27 +28,41 @@ const reset = () => {
     templesElement.innerHTML = '';
 };
 /* sortBy Function */
+const sortBySelect = document.querySelector("#sortBy");
+const alphabeticalOption = document.createElement("option");
+alphabeticalOption.value = "alphabetical";
+alphabeticalOption.textContent = "Alphabetical";
+sortBySelect.appendChild(alphabeticalOption);
 const sortBy = (temples) => {
     reset();
     const filter = document.querySelector("#sortBy").value;
     switch (filter) {
-      case "utah":
-        displayTemples(temples.filter((temple) => temple.location.includes("Utah")));
-        break;
-      case "notutah":
-        displayTemples(temples.filter((temple) => !temple.location.includes("Utah")));
-        break;
-      case "older":
-        displayTemples(temples.filter((temple) => {
-          const year = temple.dedicated.match(/\d{4}/);
-          return year && parseInt(year[0]) < 1950;
-        }));
-        break;
-      case "all":
-      default:
-        displayTemples(temples);
-        break;
-    }
+        case "utah":
+            displayTemples(temples.filter((temple) => temple.location.includes("Utah")));
+            break;
+        case "notutah":
+            displayTemples(temples.filter((temple) => !temple.location.includes("Utah")));
+            break;
+        case "older":
+            displayTemples(temples.filter((temple) => {
+            const year = temple.dedicated.match(/\d{4}/);
+            return year && parseInt(year[0]) < 1950;
+            }));
+            break;
+        case "alphabetical":
+            displayTemples(temples.slice().sort((a, b) => {
+                const templeA = a.templeName.toLowerCase();
+                const templeB = b.templeName.toLowerCase();
+                if (templeA < templeB) return -1;
+                if (templeA > templeB) return 1;
+                return 0;
+            }));
+            break;
+        case "all":
+        default:
+            displayTemples(temples);
+            break;
+        }
   };
 /* Event Listener */
 document.querySelector("#sortBy").addEventListener("change", () => { sortBy(templeList) });
